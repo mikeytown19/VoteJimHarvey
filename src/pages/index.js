@@ -30,9 +30,8 @@ const IndexPage = () => (
       </HeroContainer>
     </Row>
 
-    <Row>
-      <TabBoxes />
-    </Row>
+    <TabBoxes />
+
 
   </Layout>
 )
