@@ -22,6 +22,31 @@ const MobileNavStyles = styled.div`
   }
 `
 
+const NavLeft = styled.div`
+  display: flex;
+  padding: 15px;
+
+  ${media.small} {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 0;
+    align-items: flex-start;
+  }
+`
+
+const NavRight = styled(Link)`
+  background-color: ${colors.red};
+  padding: 15px 25px;
+  border-radius: 2px;
+  cursor: pointer;
+
+  ${media.small} {
+    margin-bottom: 20px;
+    margin-left: 10px;
+  }
+`
+
 const StyledRow = styled(Row)`
 color: ${colors.white};
 max-width: ${maxWidth};
@@ -31,6 +56,10 @@ position: relative;
 
 a {
   line-height: 0;
+}
+
+${NavRight} {
+  line-height: initial;
 }
 
 
@@ -43,6 +72,10 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 0;
+
+    a {
+      line-height: initial;
+    }
 
     img {
 
@@ -106,30 +139,7 @@ const HamburgerStyles = styled.div`
   }
 `
 
-const NavLeft = styled.div`
-  display: flex;
-  padding: 15px;
 
-  ${media.small} {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding-left: 0;
-    align-items: flex-start;
-  }
-`
-
-const NavRight = styled.div`
-  background-color: ${colors.red};
-  padding: 15px 25px;
-  border-radius: 2px;
-
-  ${media.small} {
-    margin-bottom: 20px;
-    margin-left: 10px;
-    cursor: pointer;
-  }
-`
 
 const StyledNav = styled.nav`
   background-color: ${colors.blue};
@@ -178,7 +188,7 @@ function Nav() {
           <NavLinks />
         </NavLeft>
       <NavLinksStyles hoverColor={colors.legalGray}>
-        <NavRight>
+        <NavRight to="/">
           {NavigationData[4].name}
         </NavRight>
       </NavLinksStyles>

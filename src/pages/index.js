@@ -1,20 +1,39 @@
 import React from "react"
+import styled from '@emotion/styled'
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import {theme, Container, Row, media } from '../styles'
+import Jim from '../images/logos-2.png'
+import TabBoxes from '../components/tabBoxes'
+
+const {colors, maxWidth} = theme;
+
+const HeroImage = styled.img`
+  max-width: 600px;
+  height: auto;
+  width: 100%;
+`
+
+const HeroContainer = styled(Container)`
+  margin: auto;
+  padding-top: 30px;
+  text-align: center;
+`
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
 
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <Row noPadding bgColor={colors.blue}>
+      <HeroContainer>
+        <HeroImage src={Jim} alt=''/>
+      </HeroContainer>
+    </Row>
+
+    <Row>
+      <TabBoxes />
+    </Row>
+
   </Layout>
 )
 
