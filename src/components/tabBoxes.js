@@ -11,6 +11,10 @@ const TabContainer = styled(Container)`
   margin-top: -75px;
   color: ${colors.white};
 
+  ${media.small} {
+    flex-wrap: wrap;
+  }
+
 
 
 `
@@ -32,6 +36,10 @@ const ImageContainer = styled(Link)`
     width: 400px;
     background-color: ${colors.red};
     position: relative;
+
+    ${media.small} {
+      width: 50%;
+    }
 
     &:hover {
       &:before {

@@ -107,6 +107,7 @@ const GlobalStyles = () => (
       font-size: 16px;
       line-height: 24px;
       color: ${theme.colors.dark};
+      padding-bottom: 14px;
       &.legal {
         font-size: 10px;
         line-height: 12px;
