@@ -1,10 +1,10 @@
 const NavigationData = [
   {
-    to:'/page-2',
+    to:'/',
     name:'Home'
   },
   {
-    to:'/',
+    to:'/endorsements',
     name:'Endorsements'
   },
   {

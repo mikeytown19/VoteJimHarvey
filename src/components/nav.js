@@ -143,6 +143,8 @@ const HamburgerStyles = styled.div`
 
 const StyledNav = styled.nav`
   background-color: ${colors.blue};
+  height: 80px;
+  display: flex;
 
   &.active {
     ${MobileNavStyles} {
@@ -154,6 +156,12 @@ const StyledNav = styled.nav`
     }
   }
 
+`
+
+const FixedNav = styled.div`
+    position: fixed;
+    width: 100%;
+    z-index: 100;
 `
 
 const NavLinks = props => (
@@ -180,7 +188,8 @@ function Nav() {
 
 
   return (
-    <StyledNav className={opened ? "active" : ""}>
+    <FixedNav>
+          <StyledNav className={opened ? "active" : ""}>
       <StyledRow>
         <Link to="/"><img src={NavLogo} alt=''/></Link>
        <MobileNavStyles>
@@ -202,6 +211,8 @@ function Nav() {
 
       </StyledRow>
     </StyledNav>
+    </FixedNav>
+
   )
 
 }

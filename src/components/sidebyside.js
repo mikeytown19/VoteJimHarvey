@@ -8,10 +8,17 @@ import {theme, Container, Row, media } from '../styles'
 const ImageContainer = styled.div`
   padding: 20px;
   max-width: 450px;
+
+  .gatsby-image-wrapper {
+    border-radius: ${props =>
+    props.roundImage ? '50%' : '0' };
+  }
+
   ${media.medium} {
     margin: auto;
     }
-`
+    `
+
 const ContentContainer = styled.div`
   padding: 0px 20px;
 `
@@ -22,12 +29,11 @@ flex-wrap: wrap;
     flex: 1;
     min-width: 200px;
   }
+
   flex-direction: ${props =>
   props.reverse ? 'row-reverse': 'row'};
+
   ${media.medium} {
-    flex-wrap: wrap;
-  }
-  ${media.small} {
     flex-direction: column;
   }
 `
@@ -35,12 +41,12 @@ flex-wrap: wrap;
 
 
 
-const SideBySide = ({children, imgSrc, reverse}) => {
+const SideBySide = ({children, imgSrc, reverse, roundImage}) => {
 
   return (
     <StyleContinaer reverse={reverse}>
-      <ImageContainer>
-        <Image src={imgSrc}/>
+      <ImageContainer roundImage={roundImage}>
+        <Image  src={imgSrc}/>
       </ImageContainer>
       <ContentContainer>
         {children}

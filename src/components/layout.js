@@ -8,9 +8,15 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Nav from './nav'
+import Footer from './footer'
+import styled from '@emotion/styled'
 
 
 import GlobalStyles from '../styles/Global';
+
+const ChildrenContainer = styled.div`
+  padding-top: 80px;
+`
 
 const Layout = ({ children }) => (
   <>
@@ -18,7 +24,13 @@ const Layout = ({ children }) => (
       <GlobalStyles />
       <Nav />
 
-      {children}
+      <ChildrenContainer>
+        {children}
+
+      </ChildrenContainer>
+
+      <Footer />
+
     </main>
   </>
 )
