@@ -1,16 +1,38 @@
-import React from "react"
-import { Link } from "gatsby"
 
+
+import React from 'react'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import EndorseCard from '../components/endorseCard'
+import {theme, Container, Row } from '../styles'
 
-const Endorsments = () => (
-  <Layout>
+
+
+const Endorsments = () => {
+
+
+  return (
+
+    <Layout>
     <SEO title="Endorsments" />
-    <h1>Hi from the Endorsments</h1>
-    <p>Welcome to Endorsments</p>
-    <Link to="/">Go back to the homepage</Link>
+    <Row>
+      <Container>
+        <h1>Endorsments</h1>
+
+      <EndorseCard />
+      </Container>
+    </Row>
+
+
+
+
   </Layout>
-)
+
+
+
+
+  )
+}
 
 export default Endorsments
+

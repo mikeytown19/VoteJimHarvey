@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import styled from '@emotion/styled'
 import {theme, Container, Row, media } from '../styles'
 import Image from './image'
-const {colors, maxWidth} = theme;
+const {colors} = theme;
 
 const TabContainer = styled(Container)`
   padding: 0;

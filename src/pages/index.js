@@ -1,16 +1,13 @@
 import React from "react"
 import styled from '@emotion/styled'
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import {theme, Container, Row, media } from '../styles'
+import {theme, Container, Row } from '../styles'
 import Jim from '../images/Logos.2.svg'
 import TabBoxes from '../components/tabBoxes'
-import Image from '../components/image'
-import H from '../images/cherry-delivery.png'
 import SideBySide from '../components/sidebyside'
 
-const {colors, maxWidth} = theme;
+const {colors} = theme;
 
 const HeroImage = styled.img`
   max-height: 400px;

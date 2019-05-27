@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import Link from 'gatsby-link'
 import styled from '@emotion/styled'
-import {theme, Container, Row, media } from '../styles'
+import {theme, Row, media } from '../styles'
 import NavLogo from '../images/navLogo.png'
 import NavigationData from '../data/navigation'
 
@@ -18,6 +18,7 @@ const MobileNavStyles = styled.div`
   width: 100%;
 
   ${media.small} {
+    border-bottom: solid white 2px;
     display: none;
   }
 `
@@ -72,9 +73,11 @@ ${NavRight} {
     justify-content: space-between;
     align-items: center;
     padding: 0;
+    padding-bottom: 10px;
 
     a {
       line-height: initial;
+
     }
 
     img {
@@ -106,6 +109,7 @@ const NavLinksStyles = styled.div`
     flex-direction: column;
     align-items: baseline;
     width: 100%;
+    margin-bottom: 10px;
 
     a {
       margin-top: 8px;
@@ -173,6 +177,8 @@ const NavLinks = props => (
           <Link  to={item.to} key={index}> {item.name} </Link>
           )
         }
+
+        return ''
     })}
   </NavLinksStyles>
 )
