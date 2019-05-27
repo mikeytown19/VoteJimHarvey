@@ -8,7 +8,7 @@ const NavigationData = [
     name:'Endorsements'
   },
   {
-    to:'/',
+    to:'/about',
     name:'About'
   },
   {

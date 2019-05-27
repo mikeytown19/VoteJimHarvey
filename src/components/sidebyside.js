@@ -9,6 +9,12 @@ const ImageContainer = styled.div`
   padding: 20px;
   max-width: 450px;
 
+  display: ${props => props.imageToCenter ? 'flex': ''};
+  justify-content: ${props => props.imageToCenter ? 'center': ''};
+  align-items: ${props => props.imageToCenter ? 'center': ''};
+
+
+
   .gatsby-image-wrapper {
     border-radius: ${props =>
     props.roundImage ? '50%' : '0' };
@@ -36,16 +42,17 @@ flex-wrap: wrap;
   ${media.medium} {
     flex-direction: column;
   }
+
 `
 
 
 
 
-const SideBySide = ({children, imgSrc, reverse, roundImage}) => {
+const SideBySide = ({children, imgSrc, reverse, roundImage, imageToCenter}) => {
 
   return (
     <StyleContinaer reverse={reverse}>
-      <ImageContainer roundImage={roundImage}>
+      <ImageContainer  imageToCenter={imageToCenter}  roundImage={roundImage}>
         <Image  src={imgSrc}/>
       </ImageContainer>
       <ContentContainer>
