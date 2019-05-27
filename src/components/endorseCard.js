@@ -26,6 +26,7 @@ const CardContainer = styled.div`
     width: 100%;
     max-width: 400px;
     margin: 10px;
+    cursor: pointer;
 
   }
 `
