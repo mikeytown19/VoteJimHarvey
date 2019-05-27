@@ -12,7 +12,7 @@ const NavigationData = [
     name:'About'
   },
   {
-    to:'/components',
+    to:'/contact',
     name:'Contact'
   },
   {
