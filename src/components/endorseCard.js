@@ -2,7 +2,9 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from '@emotion/styled'
-
+import Popup from 'reactjs-popup'
+import {theme } from '../styles'
+const {colors} = theme;
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
  * images with lazy loading and reduced file sizes. The image is loaded using a
@@ -14,6 +16,8 @@ import styled from '@emotion/styled'
  * - `StaticQuery`: https://gatsby.dev/staticquery
  */
 
+
+
 const CardContainer = styled.div`
   color: red;
   display: flex;
@@ -21,15 +25,61 @@ const CardContainer = styled.div`
   margin: auto;
   max-width: 1200px;
   justify-content: center;
-  .gatsby-image-wrapper {
+
+  .img_container {
     height: auto;
     width: 100%;
     max-width: 400px;
     margin: 10px;
     cursor: pointer;
+    position: relative;
+
+
+    .button {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .close {
+      cursor: pointer;
+      font-size: 30px;
+    }
 
   }
 `
+
+const PopupStyles = styled(Popup)`
+color: ${colors.blue};
+margin: 0;
+max-width: 100% !important;
+.popup-content {
+  width: 75% !important;
+}
+`
+
+const PopupExample =  ({img}) => {
+  return (
+    <PopupStyles  position="center center"trigger={<span className="button"></span>} modal>
+    {close => (
+      <div className="modal">
+        <a className="close" onClick={close}>
+          &times;
+        </a>
+
+
+     <Img  fluid={img}/>
+
+
+      </div>
+    )}
+  </PopupStyles>
+
+)
+}
+
+
 
 const EndorsmentCard = ({data}) => {
 
@@ -42,10 +92,14 @@ const EndorsmentCard = ({data}) => {
   })
   return (
     <CardContainer>
-      {console.log(endorseImages)}
+
       {endorseImages.map((item, index) => {
+        let image = item.node.childImageSharp.fluid;
         return (
-          <Img key={index} fluid={item.node.childImageSharp.fluid}/>
+          <div key={index} className="img_container">
+            <PopupExample img={image} />
+            <Img  fluid={image}/>
+          </div>
         )
       })}
 
@@ -65,7 +119,7 @@ const EndorsmentCard = ({data}) => {
         node {
           relativePath
           childImageSharp {
-            fluid(maxWidth: 800) {
+            fluid(maxWidth: 1200) {
               ...GatsbyImageSharpFluid
               originalName
             }
