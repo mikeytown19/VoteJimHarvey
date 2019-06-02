@@ -67,18 +67,18 @@ const TabBoxes = () => (
         <ImageText> <h4>Contribute</h4></ImageText>
       </ImageContainer>
 
-      <ImageContainer to='/page-2'>
+      <ImageContainer to='/'>
         <Image src='community.jpg' />
         <ImageText> <h4>Volunteer</h4></ImageText>
 
       </ImageContainer>
 
-      <ImageContainer to='/page-2'>
+      <ImageContainer to='/'>
         <Image src='email-updates.jpg' />
         <ImageText> <h4>Email Updates</h4></ImageText>
       </ImageContainer>
 
-      <ImageContainer to='/page-2'>
+      <ImageContainer to='/'>
         <Image src='phone.jpg' />
         <ImageText> <h4>Latest News</h4></ImageText>
       </ImageContainer>
