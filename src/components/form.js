@@ -14,12 +14,30 @@ const StyledForm = styled.form`
     margin: 10px 0;
     border-radius: 3px;
     border: solid ${colors.blue} 1px;
-    padding: 5px 10px;
+    padding: 8px 11px;
     -webkit-appearance: none;
     color: ${colors.blue};
     width: 100%;
     max-width: 250px;
+    font-size: 14px;
 
+  }
+
+  button {
+    -webkit-appearance: none;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 8px 15px;
+    margin: 5px 0px;
+    background-color: ${colors.blue};
+    color: ${colors.white};
+    border: none;
+    transition: background-color .2s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: ${colors.legalGray};
+    }
   }
 
 `
