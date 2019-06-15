@@ -42,7 +42,6 @@ const StyledForm = styled.form`
 
 `
 
-
 const Form = () => {
   return (
     <StyledForm name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">

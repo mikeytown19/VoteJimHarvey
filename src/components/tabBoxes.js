@@ -14,9 +14,6 @@ const TabContainer = styled(Container)`
   ${media.small} {
     flex-wrap: wrap;
   }
-
-
-
 `
 const ImageText = styled.div`
       position: absolute;
