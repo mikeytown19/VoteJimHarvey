@@ -5,10 +5,65 @@ import {theme, Row, media } from '../styles'
 import NavLogo from '../images/navLogo.png'
 import NavigationData from '../data/navigation'
 
-console.log(NavigationData)
-
 const {colors, maxWidth} = theme;
 
+const NavLinks = props => (
+  <NavLinksStyles>
+    {NavigationData.map((item, index) => {
+      // This way i am not getting Donate to appear in this Map function
+      if (index < 5) {
+        return (
+          <Link  to={item.to} key={index}> {item.name} </Link>
+          )
+        }
+
+        return ''
+    })}
+  </NavLinksStyles>
+)
+function Nav() {
+  const [opened, toggleOpened] = useState(false);
+
+ const handleClick = e => {
+    e.preventDefault()
+    e.currentTarget.classList.toggle('change');
+    toggleOpened(!opened)
+
+  }
+
+
+  return (
+    <FixedNav>
+          <StyledNav className={opened ? "active" : ""}>
+      <StyledRow>
+        <Link to="/"><img src={NavLogo} alt=''/></Link>
+       <MobileNavStyles>
+       <NavLeft>
+          <NavLinks />
+        </NavLeft>
+      <NavLinksStyles hoverColor={colors.legalGray}>
+        <NavRight to="/">
+          {NavigationData[5].name}
+        </NavRight>
+      </NavLinksStyles>
+       </MobileNavStyles>
+
+            <HamburgerStyles onClick={(e)=>handleClick(e)}>
+              <div className="bar1"></div>
+              <div className="bar2"></div>
+              <div className="bar3"></div>
+            </HamburgerStyles>
+
+      </StyledRow>
+    </StyledNav>
+    </FixedNav>
+
+  )
+
+}
+
+
+export default Nav;
 
 
 const MobileNavStyles = styled.div`
@@ -167,61 +222,3 @@ const FixedNav = styled.div`
     width: 100%;
     z-index: 100;
 `
-
-const NavLinks = props => (
-  <NavLinksStyles>
-    {NavigationData.map((item, index) => {
-      // This way i am not getting Donate to appear in this Map function
-      if (index < 4) {
-        return (
-          <Link  to={item.to} key={index}> {item.name} </Link>
-          )
-        }
-
-        return ''
-    })}
-  </NavLinksStyles>
-)
-function Nav() {
-  const [opened, toggleOpened] = useState(false);
-
- const handleClick = e => {
-    e.preventDefault()
-    e.currentTarget.classList.toggle('change');
-    toggleOpened(!opened)
-
-  }
-
-
-  return (
-    <FixedNav>
-          <StyledNav className={opened ? "active" : ""}>
-      <StyledRow>
-        <Link to="/"><img src={NavLogo} alt=''/></Link>
-       <MobileNavStyles>
-       <NavLeft>
-          <NavLinks />
-        </NavLeft>
-      <NavLinksStyles hoverColor={colors.legalGray}>
-        <NavRight to="/">
-          {NavigationData[4].name}
-        </NavRight>
-      </NavLinksStyles>
-       </MobileNavStyles>
-
-            <HamburgerStyles onClick={(e)=>handleClick(e)}>
-              <div className="bar1"></div>
-              <div className="bar2"></div>
-              <div className="bar3"></div>
-            </HamburgerStyles>
-
-      </StyledRow>
-    </StyledNav>
-    </FixedNav>
-
-  )
-
-}
-
-
-export default Nav;

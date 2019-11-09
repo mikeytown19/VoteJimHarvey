@@ -4,6 +4,10 @@ const NavigationData = [
     name:'Home'
   },
   {
+    to:'/achievements',
+    name:'Achievements'
+  },
+  {
     to:'/endorsements',
     name:'Endorsements'
   },

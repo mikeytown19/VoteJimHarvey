@@ -5,6 +5,37 @@ import {theme, Container, Row, media } from '../styles'
 import Image from './image'
 const {colors} = theme;
 
+
+const TabBoxes = () => (
+  <Row noPadding>
+    <TabContainer>
+      <LinkContainer to='/achievements'>
+        <Text>Achievements</Text>
+      </LinkContainer>
+
+      <LinkContainer to='/endorsements'>
+
+        <Text>Endorsements</Text>
+
+      </LinkContainer>
+
+      <a className="LinkContainer" target="_blank" href='https://secure.utah.gov/voterreg/index.html'>
+
+        <Text>Register to Vote</Text>
+      </a>
+
+      <LinkContainer to='/' className="donate">
+
+        <Text>Donate</Text>
+      </LinkContainer>
+
+    </TabContainer>
+  </Row>
+)
+
+
+export default TabBoxes;
+
 const TabContainer = styled(Container)`
   padding: 0;
   display: flex;
@@ -13,6 +44,25 @@ const TabContainer = styled(Container)`
 
   ${media.small} {
     flex-wrap: wrap;
+  }
+  .LinkContainer {
+    width: 400px;
+    background-color: ${colors.blue2};
+    position: relative;
+    padding: 20px;
+    transition: background-color .3s;
+
+    &:hover {
+      background-color: ${colors.blue3};
+    }
+
+    ${media.small} {
+      width: 50%;
+      margin: 0;
+      padding: 20px 5px;
+
+    }
+
   }
 `
 const Text = styled.h4`
@@ -61,33 +111,3 @@ const LinkContainer = styled(Link)`
     }
 
 `
-
-const TabBoxes = () => (
-  <Row noPadding>
-    <TabContainer>
-      <LinkContainer to='/'>
-        <Text>Achievements</Text>
-      </LinkContainer>
-
-      <LinkContainer to='/'>
-
-        <Text>Endorsements</Text>
-
-      </LinkContainer>
-
-      <LinkContainer to='/'>
-
-        <Text>Register to Vote</Text>
-      </LinkContainer>
-
-      <LinkContainer to='/' className="donate">
-
-        <Text>Dontate</Text>
-      </LinkContainer>
-
-    </TabContainer>
-  </Row>
-)
-
-
-export default TabBoxes;

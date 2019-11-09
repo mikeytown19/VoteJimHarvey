@@ -1,87 +1,18 @@
-import React from "react"
+import React, { useState } from 'react'
 import { StaticQuery, graphql } from "gatsby"
+import Carousel, { Modal, ModalGateway } from 'react-images'
 import Img from "gatsby-image"
 import styled from '@emotion/styled'
-import Popup from 'reactjs-popup'
-import {theme } from '../styles'
+
+import {theme, media } from '../styles'
 const {colors} = theme;
-/*
- * This component is built using `gatsby-image` to automatically serve optimized
- * images with lazy loading and reduced file sizes. The image is loaded using a
- * `StaticQuery`, which allows us to load the image from directly within this
- * component, rather than having to pass the image data down from pages.
- *
- * For more information, see the docs:
- * - `gatsby-image`: https://gatsby.dev/gatsby-image
- * - `StaticQuery`: https://gatsby.dev/staticquery
- */
-
-
-
-const CardContainer = styled.div`
-  color: red;
-  display: flex;
-  flex-wrap: wrap;
-  margin: auto;
-  max-width: 1200px;
-  justify-content: center;
-
-  .img_container {
-    height: auto;
-    width: 100%;
-    max-width: 400px;
-    margin: 10px;
-    cursor: pointer;
-    position: relative;
-
-
-    .button {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      z-index: 100;
-    }
-
-    .close {
-      cursor: pointer;
-      font-size: 30px;
-    }
-
-  }
-`
-
-const PopupStyles = styled(Popup)`
-color: ${colors.blue};
-margin: 0;
-max-width: 100% !important;
-.popup-content {
-  width: 75% !important;
-}
-`
-
-const PopupExample =  ({img}) => {
-  return (
-    <PopupStyles  position="center center"trigger={<span className="button"></span>} modal>
-    {close => (
-      <div className="modal">
-        <a className="close" onClick={close}>
-          &times;
-        </a>
-
-
-     <Img  fluid={img}/>
-
-
-      </div>
-    )}
-  </PopupStyles>
-
-)
-}
-
 
 
 const EndorsmentCard = ({data}) => {
+  const images = []
+  const [modalIsOpen, toggleModal] = useState(false)
+  const [selectedIndex, updateIndex] = useState(0)
+
 
   let endorseImages = data.allFile.edges.filter(({node}) => {
     if (node.relativePath) {
@@ -91,23 +22,42 @@ const EndorsmentCard = ({data}) => {
     }
   })
   return (
-    <CardContainer>
+    <GalleryLayout>
+    {endorseImages.map(({ node }, id) => {
+      console.log(node)
+      images.push({ src: node.childImageSharp.fluid.src })
 
-      {endorseImages.map((item, index) => {
-        let image = item.node.childImageSharp.fluid;
-        return (
-          <div key={index} className="img_container">
-            <PopupExample img={image} />
-            <Img  fluid={image}/>
-          </div>
-        )
-      })}
+      let image = node.childImageSharp.fluid
 
-    </CardContainer>
+      return (
+        <StyledImageContainer
+          onClick={() => {
+            toggleModal(prevState => !prevState)
+            updateIndex(prevState => (prevState = id))
+          }}
+          key={id}
+        >
+          <Img fluid={image} />
+        </StyledImageContainer>
+      )
+    })}
+
+    {modalIsOpen ? (
+      <div>
+        <ModalGateway>
+          <Modal onClose={() => toggleModal(prevState => !prevState)}>
+            <Carousel currentIndex={selectedIndex} views={images} />
+          </Modal>
+        </ModalGateway>
+      </div>
+    ) : null}
+  </GalleryLayout>
 
   )
 
   }
+
+
 
 
   export default props => (
@@ -123,6 +73,10 @@ const EndorsmentCard = ({data}) => {
               ...GatsbyImageSharpFluid
               originalName
             }
+
+            fixed(quality: 90, width: 472) {
+              ...GatsbyImageSharpFixed
+            }
           }
 
         	}
@@ -132,3 +86,37 @@ const EndorsmentCard = ({data}) => {
     }
     `}  render={data => <EndorsmentCard data={data} {...props}/>}/>
     );
+
+    const StyledImageContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    object-fit: cover;
+    filter: grayscale(0);
+    transition: filter 0.2s, padding 0.2s;
+    padding: 25px;
+    border: solid white 1px;
+    display: flex;
+    justify-content: center;
+    &:hover {
+      filter: grayscale(0.5);
+      border: solid 1px #5e5e5e;
+    }
+    .gatsby-image-wrapper {
+      height: 100% !important;
+      width: 100% !important;
+    }
+    .css-h67k8  {
+      top: 40px;
+    }
+  `
+
+  const GalleryLayout = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-auto-rows: 300px;
+    width: 100%;
+    justify-items: center;
+
+  `
+

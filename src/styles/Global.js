@@ -165,7 +165,12 @@ const GlobalStyles = () => (
         margin-top: -50px;
       }
     }
+    .css-1rbq2qy {
+      z-index: 200 !important;
+    }
   `}
+
+
   />
 )
 
