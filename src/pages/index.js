@@ -50,7 +50,7 @@ const IndexPage = () => (
 
     <Row>
       <Container>
-        <SideBySide roundImage imgSrc="cherry-success.png">
+        <SideBySide roundImage imgSrc="jim-construction.png">
         <p>Additionally I am proud to be supported by Utah Senators; Scott Jenkins, Greg Buxton (elect) and Allen Christensen. </p>
 
         <p>I am specifically grateful to Rep. Brad Dee for his years of public service and for his unconditional endorsement. As the second highest vote recipient at the convention, we are grateful that Rep. Dee asked all of his supporters to now support us as the next Weber County Commissioner. </p>
@@ -68,7 +68,7 @@ const IndexPage = () => (
 
     <Row>
       <Container>
-        <SideBySide reverse roundImage imgSrc="cherry-upgrade.png">
+        <SideBySide reverse roundImage imgSrc="jim-rodeo.png">
         <p>I will support small business and also “Big Business” because they bring the most tax into the community and that helps keep property tax low. </p>
 
         <p>I will grow business in Weber County but not on the back of the taxpayers. I’ve got a proven record of taking care of what we have because its less expensive than paying a huge amount later. In managing government funds it's one thing to save money but it's even a better thing to generate taxable income without raising taxes. That's what I have done !  </p>

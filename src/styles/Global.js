@@ -74,8 +74,12 @@ const GlobalStyles = () => (
     h4 {
       font-size: 24px;
       line-height: 30px;
-
       font-weight: 400;
+
+      ${media.small} {
+        font-size: 20px;
+        line-height: 24px;
+      }
       &.heavy {
         font-weight: 700;
       }

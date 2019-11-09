@@ -8,17 +8,17 @@ const {colors} = theme;
 const TabContainer = styled(Container)`
   padding: 0;
   display: flex;
-  margin-top: -75px;
+  margin-top: -45px;
   color: ${colors.white};
 
   ${media.small} {
     flex-wrap: wrap;
   }
 `
-const ImageText = styled.div`
-      position: absolute;
+const Text = styled.h4`
+
       color: ${colors.white};
-      top: 0;
+
       z-index: 20;
       width: 100%;
       height: 100%;
@@ -29,56 +29,61 @@ const ImageText = styled.div`
       cursor: pointer;
 `
 
-const ImageContainer = styled(Link)`
+const LinkContainer = styled(Link)`
     width: 400px;
-    background-color: ${colors.red};
+    background-color: ${colors.blue2};
     position: relative;
+    padding: 20px;
+    transition: background-color .3s;
+
+    &:hover {
+      background-color: ${colors.blue3};
+    }
+
 
     ${media.small} {
       width: 50%;
+      margin: 0;
+      padding: 20px 5px;
+
     }
+
+    &.donate {
+    background-color: ${colors.red};
+    position: relative;
+    padding: 20px;
 
     &:hover {
-      &:before {
-        opacity: .5;
-      }
+      background-color: ${colors.red2};
     }
 
-    &:before {
-      transition: opacity .4s;
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      background-color: ${props => props.nobg ? '' : colors.blue};
-      opacity: .8;
-      z-index: 10;
-      content: '';
-      cursor: pointer;
+
     }
+
 `
 
 const TabBoxes = () => (
   <Row noPadding>
     <TabContainer>
-      <ImageContainer to='/' nobg="true">
-        <ImageText> <h4>Contribute</h4></ImageText>
-      </ImageContainer>
+      <LinkContainer to='/'>
+        <Text>Achievements</Text>
+      </LinkContainer>
 
-      <ImageContainer to='/'>
-        <Image src='community.jpg' />
-        <ImageText> <h4>Volunteer</h4></ImageText>
+      <LinkContainer to='/'>
 
-      </ImageContainer>
+        <Text>Endorsements</Text>
 
-      <ImageContainer to='/'>
-        <Image src='email-updates.jpg' />
-        <ImageText> <h4>Email Updates</h4></ImageText>
-      </ImageContainer>
+      </LinkContainer>
 
-      <ImageContainer to='/'>
-        <Image src='phone.jpg' />
-        <ImageText> <h4>Latest News</h4></ImageText>
-      </ImageContainer>
+      <LinkContainer to='/'>
+
+        <Text>Register to Vote</Text>
+      </LinkContainer>
+
+      <LinkContainer to='/' className="donate">
+
+        <Text>Dontate</Text>
+      </LinkContainer>
 
     </TabContainer>
   </Row>

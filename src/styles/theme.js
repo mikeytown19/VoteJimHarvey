@@ -4,13 +4,16 @@ const theme = {
     white: '#fff',
     black: '#000',
     blue: '#2C3E51',
+    blue2:'#3B5570',
+    blue3: '#334b65',
     green: '#99AF21',
     gray: '#8B8F95',
     borderGray: '#CBCDD1',
     legalGray: '#7D8086',
     dark: '#202E39',
     lightGray: '#F6F6F6',
-    red: '#d6000b'
+    red: '#d6000b',
+    red2: '#9a131a'
   },
 
   mediaSizes: {

@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import Image from './image'
-import {media } from '../styles'
+import {media, theme } from '../styles'
+
+const {colors} = theme;
 
 
 
@@ -27,10 +29,20 @@ const ImageContainer = styled.div`
 
 const ContentContainer = styled.div`
   padding: 0px 20px;
-`
-const StyleContinaer = styled.div`
-display: flex;
-flex-wrap: wrap;
+
+  p {
+    color: ${colors.blue};
+  }
+
+  h4, i {
+    font-weight: 700;
+    color: ${colors.blue3};
+  }
+
+  `
+  const StyleContinaer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
   div {
     flex: 1;
     min-width: 200px;
