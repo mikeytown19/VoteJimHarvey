@@ -1,3 +1,11 @@
+const dotenv = require("dotenv");
+if (process.env.ENVIRONMENT !== "production") {
+  dotenv.config();
+}
+
+const { spaceId, accessToken } = process.env;
+
+
 module.exports = {
   siteMetadata: {
     title: `Vote Jim Harvey`,
@@ -25,6 +33,13 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: "gatsby-source-contentful",
+      options: {
+        spaceId,
+        accessToken
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

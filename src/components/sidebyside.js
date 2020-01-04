@@ -1,10 +1,28 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import Img from 'gatsby-image'
 import Image from './image'
 import {media, theme } from '../styles'
 
 const {colors} = theme;
 
+
+
+const SideBySide = ({children, imgSrc, reverse, roundImage, imageToCenter}) => {
+
+  return (
+    <StyleContinaer reverse={reverse}>
+      <ImageContainer  imageToCenter={imageToCenter}  roundImage={roundImage}>
+        <Img  fluid={imgSrc}/>
+      </ImageContainer>
+      <ContentContainer>
+        {children}
+      </ContentContainer>
+    </StyleContinaer>
+  )
+}
+
+export default SideBySide
 
 
 const ImageContainer = styled.div`
@@ -56,22 +74,3 @@ const ContentContainer = styled.div`
   }
 
 `
-
-
-
-
-const SideBySide = ({children, imgSrc, reverse, roundImage, imageToCenter}) => {
-
-  return (
-    <StyleContinaer reverse={reverse}>
-      <ImageContainer  imageToCenter={imageToCenter}  roundImage={roundImage}>
-        <Image  src={imgSrc}/>
-      </ImageContainer>
-      <ContentContainer>
-        {children}
-      </ContentContainer>
-    </StyleContinaer>
-  )
-}
-
-export default SideBySide

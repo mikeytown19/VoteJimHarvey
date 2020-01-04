@@ -7,27 +7,24 @@ import styled from '@emotion/styled'
 import {theme, media } from '../styles'
 const {colors} = theme;
 
-
 const EndorsmentCard = ({data}) => {
+
+  console.log(data)
   const images = []
   const [modalIsOpen, toggleModal] = useState(false)
   const [selectedIndex, updateIndex] = useState(0)
 
 
-  let endorseImages = data.allFile.edges.filter(({node}) => {
-    if (node.relativePath) {
-      return node.relativePath.indexOf('endorsments') > -1 ;
-    } else {
-      return ''
-    }
-  })
+  let endorseImages = data.allContentfulEndorsementPage.edges[0].node.images.endorsements
+  console.log(endorseImages)
+
   return (
     <GalleryLayout>
-    {endorseImages.map(({ node }, id) => {
-      console.log(node)
-      images.push({ src: node.childImageSharp.fluid.src })
+    {endorseImages.map((item, id) => {
 
-      let image = node.childImageSharp.fluid
+      images.push({ src: item.fluid.src })
+
+      let image = item.fluid
 
       return (
         <StyledImageContainer
@@ -63,28 +60,26 @@ const EndorsmentCard = ({data}) => {
   export default props => (
     <StaticQuery
     query={graphql`
-    query {
-      allFile {
-       edges {
-        node {
-          relativePath
-          childImageSharp {
-            fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid
-              originalName
-            }
-
-            fixed(quality: 90, width: 472) {
-              ...GatsbyImageSharpFixed
+    query endorsmentQuery {
+      allContentfulEndorsementPage {
+        edges {
+          node {
+            id
+            endorsements
+            images {
+              id
+              endorsements {
+                fluid {
+                  src
+                  ...GatsbyContentfulFluid_withWebp
+                }
+              }
             }
           }
-
-        	}
-      	}
-
+        }
       }
     }
-    `}  render={data => <EndorsmentCard data={data} {...props}/>}/>
+  `}  render={data => <EndorsmentCard data={data} {...props}/>}/>
     );
 
     const StyledImageContainer = styled.div`

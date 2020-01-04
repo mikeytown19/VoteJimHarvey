@@ -1,31 +1,17 @@
-
-
 import React from 'react'
+import { graphql } from 'gatsby'
+
 import Layout from "../components/layout"
 import styled from '@emotion/styled'
 import SEO from "../components/seo"
 import EndorseCard from '../components/endorseCard'
 import {theme, Container, Row } from '../styles'
 import Jim from '../images/Logos.2.svg'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
 const {colors} = theme;
 
-const HeroImage = styled.img`
-  max-height: 400px;
-  height: auto;
-  width: 100%;
-  margin-bottom: 70px;
-
-`
-
-const HeroContainer = styled(Container)`
-  margin: auto;
-  padding-top: 30px;
-  text-align: center;
-`
-const H1 = styled.h1`
-color: ${colors.blue};`
 const Endorsments = () => {
-
 
   return (
 
@@ -43,20 +29,30 @@ const Endorsments = () => {
 
         <H1>Endorsments</H1>
 
-      <EndorseCard />
+      <EndorseCard/>
       </Container>
     </Row>
-
-
-
-
   </Layout>
-
-
-
-
   )
 }
 
 export default Endorsments
+
+const HeroImage = styled.img`
+  max-height: 400px;
+  height: auto;
+  width: 100%;
+  margin-bottom: 70px;
+
+`
+
+const HeroContainer = styled(Container)`
+  margin: auto;
+  padding-top: 30px;
+  text-align: center;
+`
+const H1 = styled.h1`
+color: ${colors.blue};`
+
+
 
