@@ -37,7 +37,7 @@ const ImageContainer = styled.div`
 
   .gatsby-image-wrapper {
     border-radius: ${props =>
-    props.roundImage ? '50%' : '0' };
+    props.roundImage ? '5px' : '0' };
   }
 
   ${media.medium} {
