@@ -31,7 +31,7 @@ const IndexPage = ({data}) => {
 
   const SideBySides = ({pageData}) =>
    pageData.pageModules.map(item => {
-      console.log(item)
+
       return (
         <Row key={item.id}>
          <Container>

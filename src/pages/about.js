@@ -19,7 +19,7 @@ const About = ({data}) => {
   const SideBySides = ({pageData}) => {
 
     return pageData.pageModules.map(item => {
-      console.log(item)
+
       return (
         <Row key={item.id}>
          <Container>

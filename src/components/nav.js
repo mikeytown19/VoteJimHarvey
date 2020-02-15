@@ -44,6 +44,14 @@ function Nav() {
       <NavLinksStyles hoverColor={colors.legalGray}>
         <NavRight to="/">
           {NavigationData[5].name}
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_donations" />
+            <input type="hidden" name="business" value="2NSD8NE4RU8R4" />
+            <input type="hidden" name="currency_code" value="USD" />
+            <input type="image" src="https://raw.githubusercontent.com/mikeytown19/VoteJimHarvey/master/src/images/favicons/apple-touch-icon-precomposed.png" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+            <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+            </form>
+
         </NavRight>
       </NavLinksStyles>
        </MobileNavStyles>
@@ -72,6 +80,7 @@ const MobileNavStyles = styled.div`
   justify-content: space-between;
   width: 100%;
 
+
   ${media.small} {
     border-bottom: solid white 2px;
     display: none;
@@ -91,11 +100,22 @@ const NavLeft = styled.div`
   }
 `
 
-const NavRight = styled(Link)`
+const NavRight = styled.div`
   background-color: ${colors.red};
   padding: 15px 25px;
   border-radius: 2px;
   cursor: pointer;
+
+  input,form {
+    filter: opacity(0.0);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 500;
+  }
+
 
   ${media.small} {
     margin-bottom: 20px;
@@ -146,6 +166,7 @@ const NavLinksStyles = styled.div`
   justify-content: space-around;
   align-items: center;
   font-weight: 600;
+  position: relative;
 
   a {
     margin: 0 10px;
