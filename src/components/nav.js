@@ -42,15 +42,8 @@ function Nav() {
           <NavLinks />
         </NavLeft>
       <NavLinksStyles hoverColor={colors.legalGray}>
-        <NavRight to="/">
+        <NavRight target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=NZ7AYG7Q3KX74&currency_code=USD&source=url">
           {NavigationData[5].name}
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-            <input type="hidden" name="cmd" value="_donations" />
-            <input type="hidden" name="business" value="2NSD8NE4RU8R4" />
-            <input type="hidden" name="currency_code" value="USD" />
-            <input type="image" src="https://raw.githubusercontent.com/mikeytown19/VoteJimHarvey/master/src/images/favicons/apple-touch-icon-precomposed.png" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-            <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-            </form>
 
         </NavRight>
       </NavLinksStyles>
@@ -100,22 +93,11 @@ const NavLeft = styled.div`
   }
 `
 
-const NavRight = styled.div`
+const NavRight = styled.a`
   background-color: ${colors.red};
   padding: 15px 25px;
   border-radius: 2px;
   cursor: pointer;
-
-  input,form {
-    filter: opacity(0.0);
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 500;
-  }
-
 
   ${media.small} {
     margin-bottom: 20px;

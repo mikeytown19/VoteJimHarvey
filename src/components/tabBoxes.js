@@ -24,10 +24,10 @@ const TabBoxes = () => (
         <Text>Register to Vote</Text>
       </a>
 
-      <LinkContainer to='/' className="donate">
+      <DonateContainer target="_blank" href='https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=NZ7AYG7Q3KX74&currency_code=USD&source=url' className="donate">
 
         <Text>Donate</Text>
-      </LinkContainer>
+      </DonateContainer>
 
     </TabContainer>
   </Row>
@@ -78,6 +78,39 @@ const Text = styled.h4`
       align-items: center;
       cursor: pointer;
 `
+ const DonateContainer = styled.a`
+
+ width: 400px;
+    background-color: ${colors.blue2};
+    position: relative;
+    padding: 20px;
+    transition: background-color .3s;
+
+    &:hover {
+      background-color: ${colors.blue3};
+    }
+
+
+    ${media.small} {
+      width: 50%;
+      margin: 0;
+      padding: 20px 5px;
+
+    }
+
+    &.donate {
+    background-color: ${colors.red};
+    position: relative;
+    padding: 20px;
+
+    &:hover {
+      background-color: ${colors.red2};
+    }
+
+
+    }
+ `
+
 
 const LinkContainer = styled(Link)`
     width: 400px;
