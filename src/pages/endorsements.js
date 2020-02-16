@@ -6,7 +6,7 @@ import styled from '@emotion/styled'
 import SEO from "../components/seo"
 import EndorseCard from '../components/endorseCard'
 import {theme, Container, Row } from '../styles'
-import Jim from '../images/Logos.2.svg'
+import Jim from '../images/re-elect-main-white.svg'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const {colors} = theme;

@@ -5,7 +5,7 @@ import { graphql } from 'gatsby'
 import Layout from "../components/layout"
 import styled from '@emotion/styled'
 import SEO from "../components/seo"
-import Jim from '../images/Logos.2.svg'
+import Jim from '../images/re-elect-main-white.svg'
 import SideBySide from '../components/sidebyside'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 

@@ -34,15 +34,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-source-stripe`,
-      options: {
-        objects: ["Sku"],
-        secretKey: process.env.STRIPE_SECRET_KEY,
-        downloadFiles: true,
-      },
-    },
-
-    {
       resolve: "gatsby-source-contentful",
       options: {
         spaceId,

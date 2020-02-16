@@ -5,25 +5,12 @@ import { graphql } from 'gatsby'
 
 import Layout from "../components/layout"
 import {theme, Container, Row } from '../styles'
-import Jim from '../images/Logos.2.svg'
+import Jim from '../images/re-elect-main-white.svg'
 import TabBoxes from '../components/tabBoxes'
 import SideBySide from '../components/sidebyside'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 const {colors} = theme;
 
-const HeroImage = styled.img`
-  max-height: 400px;
-  height: auto;
-  width: 100%;
-  margin-bottom: 70px;
-
-`
-
-const HeroContainer = styled(Container)`
-  margin: auto;
-  padding-top: 30px;
-  text-align: center;
-`
 
 const IndexPage = ({data}) => {
   data = data.allContentfulPage.edges[0].node
@@ -85,4 +72,17 @@ query MyQuery {
 }
 
 
+`
+const HeroImage = styled.img`
+  max-height: 400px;
+  height: auto;
+  width: 100%;
+  margin-bottom: 70px;
+
+`
+
+const HeroContainer = styled(Container)`
+  margin: auto;
+  padding-top: 30px;
+  text-align: center;
 `
