@@ -3,14 +3,15 @@ if (process.env.ENVIRONMENT !== "production") {
   dotenv.config();
 }
 
-const { spaceId, accessToken } = process.env;
+const { spaceId, accessToken,GTA } = process.env;
 
 
 module.exports = {
   siteMetadata: {
     title: `Vote Jim Harvey`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    author: `Jim Harvey`,
+    description: `Vote Jim Harvey is my a Campaign website for getting to know Jim Harvey from Ogden Utah.`,
+    siteUrl: `https://www.votejimharvey.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -64,6 +65,14 @@ module.exports = {
         ],// This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+
+        trackingId: GTA,
+
+      },
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
