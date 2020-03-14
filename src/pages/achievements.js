@@ -7,7 +7,9 @@ import styled from '@emotion/styled'
 import SEO from "../components/seo"
 import Jim from '../images/re-elect-main-white.svg'
 import SideBySide from '../components/sidebyside'
+import TabBoxes from '../components/tabBoxes'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
 
 import {theme, Container, Row } from '../styles'
 const {colors} = theme;
@@ -34,13 +36,17 @@ const About = ({data}) => {
   return (
 
     <Layout>
-    <SEO title="About" />
+    <SEO title="Achievements" />
 
-    <Row noPadding bgColor={colors.blue}>
+    {/* <Row noPadding bgColor={colors.blue}>
       <HeroContainer>
         <HeroImage src={Jim} alt=''/>
       </HeroContainer>
-    </Row>
+    </Row> */}
+    {/* <TabBoxes /> */}
+    <br/>
+    <br/>
+    <H1>Achievements</H1>
 
     <SideBySides pageData={data} />
 

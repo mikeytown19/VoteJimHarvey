@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import styled from '@emotion/styled'
 import SEO from "../components/seo"
 import EndorseCard from '../components/endorseCard'
+import TabBoxes from '../components/tabBoxes'
 import {theme, Container, Row } from '../styles'
 import Jim from '../images/re-elect-main-white.svg'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
@@ -18,12 +19,12 @@ const Endorsments = () => {
     <Layout>
     <SEO title="Endorsments" />
 
-    <Row noPadding bgColor={colors.blue}>
+    {/* <Row noPadding bgColor={colors.blue}>
       <HeroContainer>
         <HeroImage src={Jim} alt=''/>
       </HeroContainer>
-    </Row>
-
+    </Row> */}
+    {/* <TabBoxes /> */}
     <Row>
       <Container>
 

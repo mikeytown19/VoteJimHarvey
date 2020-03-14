@@ -37,11 +37,14 @@ const About = ({data}) => {
     <Layout>
     <SEO title="About" />
 
-    <Row noPadding bgColor={colors.blue}>
+    {/* <Row noPadding bgColor={colors.blue}>
       <HeroContainer>
         <HeroImage src={Jim} alt=''/>
       </HeroContainer>
-    </Row>
+    </Row> */}
+     <br/>
+    <br/>
+    <H1>About Jim</H1>
 
     <SideBySides pageData={data} />
 

@@ -2,7 +2,7 @@ import React from "react"
 import styled from '@emotion/styled'
 
 import { graphql } from 'gatsby'
-
+import SEO from "../components/seo"
 import Layout from "../components/layout"
 import {theme, Container, Row } from '../styles'
 import Jim from '../images/re-elect-main-white.svg'
@@ -33,6 +33,7 @@ const IndexPage = ({data}) => {
 
   return (
     <Layout>
+      <SEO title="Home" />
       <Row noPadding bgColor={colors.blue}>
         <HeroContainer>
           <HeroImage src={Jim} alt=''/>
