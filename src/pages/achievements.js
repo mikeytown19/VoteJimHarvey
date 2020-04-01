@@ -5,21 +5,25 @@ import { graphql } from 'gatsby'
 import Layout from "../components/layout"
 import styled from '@emotion/styled'
 import SEO from "../components/seo"
-import Jim from '../images/re-elect-main-white.svg'
+import Pic from '../images/achievements.png'
 import SideBySide from '../components/sidebyside'
 import TabBoxes from '../components/tabBoxes'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import Img from "gatsby-image"
 
 
-import {theme, Container, Row } from '../styles'
+import {theme, Container, Row, media } from '../styles'
 const {colors} = theme;
 
 const About = ({data}) => {
-  data = data.allContentfulPage.edges[0].node
+  const allContentfulAchievement = data.allContentfulAchievement.edges
+  const allContentfulPage = data.allContentfulPage.edges[0].node
+
+
+
   const SideBySides = ({pageData}) => {
 
     return pageData.pageModules.map(item => {
-      console.log(item)
       return (
         <Row key={item.id}>
          <Container>
@@ -38,17 +42,24 @@ const About = ({data}) => {
     <Layout>
     <SEO title="Achievements" />
 
-    {/* <Row noPadding bgColor={colors.blue}>
-      <HeroContainer>
-        <HeroImage src={Jim} alt=''/>
-      </HeroContainer>
-    </Row> */}
-    {/* <TabBoxes /> */}
+
     <br/>
     <br/>
     <H1>Achievements</H1>
 
-    <SideBySides pageData={data} />
+    <LinkContinaer>
+      {allContentfulAchievement.map(({node}) =>
+          <a className="link" target="_blank" href={node.url}>
+              <h4>{node.title}</h4>
+            <div className="image-container">
+              <LinkImage fluid={node.image.fluid} />
+            </div>
+          </a>
+        )}
+    </LinkContinaer>
+
+
+    <SideBySides pageData={allContentfulPage} />
 
   </Layout>
 
@@ -56,9 +67,6 @@ const About = ({data}) => {
 }
 
 export default About
-
-
-
 
 export const pageQuery = graphql`
   query pageQuery {
@@ -81,21 +89,75 @@ export const pageQuery = graphql`
         }
       }
     }
+    allContentfulAchievement {
+      edges {
+        node {
+          title
+          url
+          image {
+            id
+            fluid {
+              src
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+
+        }
+      }
+    }
   }
 `
 
-const HeroImage = styled.img`
-  max-height: 400px;
+const LinkImage = styled(Img)`
   height: auto;
-  width: 100%;
-  margin-bottom: 70px;
+  width: 350px;
+  object-fit: cover;
 
 `
 
-const HeroContainer = styled(Container)`
+const LinkContinaer = styled.div`
+  max-width: 1400px;
   margin: auto;
-  padding-top: 30px;
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 400px));
+  justify-content: center;
+  grid-gap: 40px;
+
+  a {
+    color: ${colors.blue};
+
+    &:visited {
+      color: ${colors.blue};
+    }
+  }
+
+
+  .link {
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    flex-direction: column;
+    padding: 15px 20px;
+    border-radius: 4px;
+    box-shadow: rgb(216, 220, 223) 0px 4px 8px;
+
+    .image-container {
+      height: 300px;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  h4 {
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
 `
 const H1 = styled.h1`
-color: ${colors.blue};`
+  color: ${colors.blue};
+
+  ${media.medium} {
+   text-align: center;
+  }
+
+`
