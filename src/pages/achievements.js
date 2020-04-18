@@ -16,7 +16,8 @@ import {theme, Container, Row, media } from '../styles'
 const {colors} = theme;
 
 const About = ({data}) => {
-  const allContentfulAchievement = data.allContentfulAchievement.edges
+  const allContentfulAchievements = data.allContentfulAchievements.edges[0].node.achievements
+  console.log(allContentfulAchievements)
   const allContentfulPage = data.allContentfulPage.edges[0].node
 
 
@@ -48,7 +49,7 @@ const About = ({data}) => {
     <H1>Achievements</H1>
 
     <LinkContinaer>
-      {allContentfulAchievement.map(({node}) =>
+      {allContentfulAchievements.map((node) =>
           <a className="link" target="_blank" href={node.url}>
               <h4>{node.title}</h4>
             <div className="image-container">
@@ -89,9 +90,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulAchievement {
-      edges {
-        node {
+    allContentfulAchievements {
+    edges {
+      node {
+        achievements {
           title
           url
           image {
@@ -101,10 +103,10 @@ export const pageQuery = graphql`
               ...GatsbyContentfulFluid_withWebp
             }
           }
-
         }
       }
     }
+  }
   }
 `
 

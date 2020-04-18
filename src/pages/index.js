@@ -37,6 +37,7 @@ const IndexPage = ({data}) => {
       <Row noPadding bgColor={colors.blue}>
         <HeroContainer>
           <HeroImage src={Jim} alt=''/>
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/pZuZ_1SEczw?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </HeroContainer>
       </Row>
       <TabBoxes />
@@ -78,12 +79,17 @@ const HeroImage = styled.img`
   max-height: 400px;
   height: auto;
   width: 100%;
-  margin-bottom: 70px;
+
 
 `
 
 const HeroContainer = styled(Container)`
   margin: auto;
-  padding-top: 30px;
+  padding-top: 0px;
   text-align: center;
+  iframe {
+    margin-top: -20px;
+    padding-bottom: 20px;
+    max-width: 580px;
+  }
 `
