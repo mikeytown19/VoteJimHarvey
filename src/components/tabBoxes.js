@@ -19,10 +19,11 @@ const TabBoxes = () => (
 
       </LinkContainer>
 
-      <a className="LinkContainer" target="_blank" href='https://secure.utah.gov/voterreg/index.html'>
+      <LinkContainer to='/about'>
 
-        <Text>Register to Vote</Text>
-      </a>
+        <Text>About</Text>
+
+        </LinkContainer>
 
       <DonateContainer target="_blank" href='https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=NZ7AYG7Q3KX74&currency_code=USD&source=url' className="donate">
 

@@ -46,6 +46,12 @@ const About = ({data}) => {
     <br/>
     <H1>About Jim</H1>
 
+    <Row >
+         <HeroContainer>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/bo-1Dc0lBvA?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        </HeroContainer>
+      </Row>
     <SideBySides pageData={data} />
 
   </Layout>
@@ -92,6 +98,12 @@ const HeroContainer = styled(Container)`
   margin: auto;
   padding-top: 30px;
   text-align: center;
+
+  iframe {
+
+    padding-bottom: 20px;
+    max-width: 800px;
+  }
 `
 const H1 = styled.h1`
 color: ${colors.blue};`
